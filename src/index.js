@@ -2,20 +2,12 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import reportWebVitals from './reportWebVitals';
 
+import AppHeader from './components/app-header';
+import SearchPanel from './components/search-panel';
+import TodoList from './components/todo-list';
+
 const rootElement = document.getElementById('root');
 
-const AppHeader = () => (<h1>To-Do List</h1>);
-const SearchPanel = () => (<input placeholder="search" />);
-const TodoList = () => {
-    const items = ['Learn React', 'Build Awesome App'];
-
-    return (
-        <ul>
-            <li>{ items[0] }</li>
-            <li>{ items[1] }</li>
-        </ul>
-    );
-};
 const App = () => {
     return (
         <div>
