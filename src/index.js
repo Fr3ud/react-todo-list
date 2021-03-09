@@ -4,10 +4,10 @@ import reportWebVitals from './reportWebVitals';
 
 import AppHeader from './components/app-header';
 import SearchPanel from './components/search-panel';
+import ItemStatusFilter from './components/item-status-filter';
 import TodoList from './components/todo-list';
 
 import './index.css';
-import ItemStatusFilter from "./components/item-status-filter";
 
 const rootElement = document.getElementById('root');
 
