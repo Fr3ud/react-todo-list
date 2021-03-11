@@ -1,13 +1,16 @@
 import React from 'react';
 
+import TodoList from '../todo-list';
 import AppHeader from '../app-header';
 import SearchPanel from '../search-panel';
+import ItemAddForm from '../item-add-form';
 import ItemStatusFilter from '../item-status-filter';
-import TodoList from '../todo-list';
 
 import './app.css';
 
 export default class App extends React.Component {
+
+    maxId = 42;
 
     state = {
         todoData: [
@@ -25,6 +28,19 @@ export default class App extends React.Component {
         });
     };
 
+    addItem = (text) => {
+        const newItem = {
+            id: this.maxId++,
+            label: text,
+            important: false,
+        };
+
+        this.setState(({ todoData }) => {
+
+            return { todoData: [...todoData, newItem] };
+        });
+    };
+
     render() {
         return (
             <div className="todo-app">
@@ -36,6 +52,9 @@ export default class App extends React.Component {
                 <TodoList
                     todos={this.state.todoData}
                     onDeleted={ this.deleteItem }
+                />
+                <ItemAddForm
+                    onItemAdded={ this.addItem }
                 />
             </div>
         );
