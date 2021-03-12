@@ -42,6 +42,7 @@ export default class App extends React.Component {
 
         this.setState(({ todoData }) => {
 
+            console.log(newItem);
             return { todoData: [...todoData, newItem] };
         });
     };
