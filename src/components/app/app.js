@@ -46,21 +46,29 @@ export default class App extends React.Component {
         });
     };
 
+    toggleProperty(arr, id, propName) {
+        const newArray = arr.slice();
+        const idx = newArray.findIndex((el) => el.id === id);
+        const item = newArray[idx];
+
+        item[propName] = !item[propName];
+
+        return newArray;
+    };
+
     onToggleImportant = (id) => {
-        console.log('Toggle important', id);
+        this.setState(({ todoData }) => {
+            return {
+                todoData: this.toggleProperty(todoData, id, 'important'),
+            };
+        });
 
     };
 
     onToggleDone = (id) => {
         this.setState(({ todoData }) => {
-            const newArray = todoData.slice();
-            const idx = newArray.findIndex((el) => el.id === id);
-            const item = newArray[idx];
-
-            item.done = !item.done;
-
             return {
-                todoData: newArray,
+                todoData: this.toggleProperty(todoData, id, 'done'),
             };
         });
     };
