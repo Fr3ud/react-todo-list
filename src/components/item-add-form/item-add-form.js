@@ -19,8 +19,6 @@ export default class ItemAddForm extends React.Component {
     };
 
     render() {
-        const { onItemAdded } = this.props;
-
         return (
             <form
                 className="item-add-form d-flex"
